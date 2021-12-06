@@ -4,11 +4,11 @@ import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/login.dart';
 import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/pages/bio/bio_screen.dart';
+import 'package:lovebird/pages/main/main_screen.dart';
 import 'package:lovebird/pages/match/match_screen.dart';
 import 'package:lovebird/pages/scan/scan_screen.dart';
 import 'package:lovebird/services/bio_service.dart';
 import 'package:lovebird/splash_screen.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async {
@@ -31,20 +31,23 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         AppRouting.loginRoute: (context) => LoginScreen(),
-        AppRouting.splashRoute: (context) => const BioScreen(),
+        AppRouting.splashRoute: (context) => const SplashScreen(),
         AppRouting.scanRoute: (context) => const ScanScreen(),
         AppRouting.bioRoute: (context) => const BioScreen(),
         AppRouting.matchRoute: (context) => const MatchScreen(),
       },
       // routes: ,
       // ignore: prefer_const_constructors
-      home: AnimatedSplashScreen(
-          duration: 2000,
-          splash: Image.asset("assets/img/lovebird.png"),
-          nextScreen: LoginScreen(),
-          splashTransition: SplashTransition.fadeTransition,
-          // pageTransitionType: PageTransitionType.scale,
-          backgroundColor: Colors.white),
+      //   home: AnimatedSplashScreen(
+      //       duration: 2000,
+      //       splash: Image.asset("assets/img/lovebird.png"),
+      //       nextScreen: ,
+      //       splashTransition: SplashTransition.fadeTransition,
+      //       // pageTransitionType: PageTransitionType.scale,
+      //       backgroundColor: Colors.white),
+      home: MainScreen(
+        key: key,
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class AppRouting {
@@ -12,5 +13,6 @@ class AppRouting {
 }
 
 class WidgetKey {
-  static final navigationKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<CurvedNavigationBarState> bottomNavigationKey =
+      GlobalKey();
 }
