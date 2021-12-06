@@ -5,6 +5,7 @@ import 'package:lovebird/models/bio_model.dart';
 
 abstract class IBioSerives {
   Future<void> update(Bio bio, String uuid);
+  Future<void> get(String uuid);
 }
 
 class BioServices implements IBioSerives {
@@ -17,6 +18,12 @@ class BioServices implements IBioSerives {
   @override
   Future<void> update(Bio bio, String uuid) {
     // TODO: implement update
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> get(String uuid) {
+    // TODO: implement get
     throw UnimplementedError();
   }
 }
