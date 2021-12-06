@@ -41,13 +41,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	 <dict>
-      <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    	<string>App needs location permissions to scan nearby beacons.</string>
-    	<key>NSLocationWhenInUseUsageDescription</key>
-    	<string>App needs location permissions to scan nearby beacons.</string>
-    	<key>NSLocationAlwaysUsageDescription</key>
-    	<string>App needs location permissions to scan nearby beacons.</string>
-    </dict>
-</dict>
+	</dict>
 </plist>
