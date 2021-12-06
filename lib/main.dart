@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:lovebird/models/bio_model.dart';
+import 'package:lovebird/services/bio_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,11 +36,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  BioServices bioServices = BioServices();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void uploadBio() async {
+    // new Bio(sex: sex, avatar: avatar, background: background, nickName: nickName, hobbies: hobbies, name: name, address: address, socialUrl: socialUrl)
+    // bioServices.update(bio, uuid)
   }
 
   @override
@@ -62,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => uploadBio(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
