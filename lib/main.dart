@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/login.dart';
 import 'package:lovebird/models/bio_model.dart';
+import 'package:lovebird/pages/bio/bio_screen.dart';
+import 'package:lovebird/pages/match/match_screen.dart';
+import 'package:lovebird/pages/scan/scan_screen.dart';
 import 'package:lovebird/services/bio_service.dart';
 import 'package:lovebird/splash_screen.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -25,6 +29,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        AppRouting.loginRoute: (context) => LoginScreen(),
+        AppRouting.splashRoute: (context) => const BioScreen(),
+        AppRouting.scanRoute: (context) => const ScanScreen(),
+        AppRouting.bioRoute: (context) => const BioScreen(),
+        AppRouting.matchRoute: (context) => const MatchScreen(),
+      },
+      // routes: ,
       // ignore: prefer_const_constructors
       home: AnimatedSplashScreen(
           duration: 2000,
