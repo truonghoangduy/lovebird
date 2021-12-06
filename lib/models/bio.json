@@ -1,0 +1,16 @@
+{
+    "bio": {
+        "sex": 0,
+        "avatar": "",
+        "background": "",
+        "nickName": "",
+        "hobbies": [
+            ""
+        ],
+        "name": "",
+        "address": "",
+        "social_url": [
+            ""
+        ]
+    }
+}
