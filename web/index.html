@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -29,7 +30,26 @@
   <title>lovebird</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAnIA6mWTGbaG3I0683zWr8Z_FBo64-deA",
+      authDomain: "lovebird-dev-fest.firebaseapp.com",
+      projectId: "lovebird-dev-fest",
+      storageBucket: "lovebird-dev-fest.appspot.com",
+      messagingSenderId: "1023528664653",
+      appId: "1:1023528664653:web:a95eca1849390708e36604"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -98,4 +118,5 @@
     }
   </script>
 </body>
+
 </html>
