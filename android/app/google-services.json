@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1023528664653",
+    "project_id": "lovebird-dev-fest",
+    "storage_bucket": "lovebird-dev-fest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023528664653:android:ff688be9e3a9211fe36604",
+        "android_client_info": {
+          "package_name": "com.devfest.lovebird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023528664653-91n8ngshmrpfba3kq0q1vdd8j9folo7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLAxC2ZZG6vQUkb_KTkIBrR0SVGS1w6Jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023528664653-91n8ngshmrpfba3kq0q1vdd8j9folo7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
