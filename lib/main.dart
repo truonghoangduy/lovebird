@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lovebird/config/routes/routing.dart';
-import 'package:lovebird/login.dart';
+import 'package:lovebird/pages/auth/login.dart';
 import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/pages/bio/bio_screen.dart';
 import 'package:lovebird/pages/main/main_screen.dart';

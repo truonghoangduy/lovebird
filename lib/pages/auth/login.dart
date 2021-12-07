@@ -54,8 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Image.asset(
-                        "assets/img/lovebird.png",
+                      Container(
+                        width: mediaQuery.width * 1.1,
+                        child: Image.asset(
+                          "assets/img/lovebird.png",
+                        ),
                       ),
                       Container(
                         width: mediaQuery.width * 0.8,
@@ -88,11 +91,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       Image.asset("assets/img/google_logo.png"),
                                 ),
                                 Text(
-                                  'Login With Google',
+                                  'Sign in with Google',
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                       color: Colors.black,
-                                      fontSize: mediaQuery.width * 0.05),
+                                      fontSize: mediaQuery.width * 0.055),
                                 ),
                               ],
                             ),
@@ -102,6 +105,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: SvgPicture.asset(
+                "assets/img/svg/bg2_login.svg",
+                fit: BoxFit.cover,
               ),
             ),
           ],
