@@ -36,12 +36,13 @@ class MyApp extends StatelessWidget {
     //Size mediaQuery = MediaQuery.of(context).size;
     return DependecyProvider(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         routes: {
-          AppRouting.loginRoute: (context) => LoginScreen(),
+          AppRouting.loginRoute: (context) => const LoginScreen(),
           AppRouting.splashRoute: (context) => const SplashScreen(),
           AppRouting.scanRoute: (context) => const ScanScreen(),
           AppRouting.bioRoute: (context) => const BioScreen(),

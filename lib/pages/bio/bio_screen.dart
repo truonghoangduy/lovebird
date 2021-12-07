@@ -86,7 +86,8 @@ class _BioScreenState extends State<BioScreen> {
                                 onPressed: () {
                                   BlocProvider.of<AuthenticationBloc>(context)
                                       .add(AuthenticationLogout());
-
+                                  Navigator.of(context)
+                                      .popAndPushNamed(AppRouting.loginRoute);
                                   // missing logout navitong
                                 },
                                 icon: Icon(Icons.logout, size: 30)),
