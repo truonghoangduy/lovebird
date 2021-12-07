@@ -20,7 +20,8 @@ class Bio {
       required this.hobbies,
       required this.name,
       required this.address,
-      required this.socialUrl});
+      required this.socialUrl,
+      this.geoFirePoint});
 
   Bio.fromJson(Map<String, dynamic> json) {
     // sex = json['sex'];
