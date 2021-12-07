@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/config/styles/color.dart';
 import 'package:lovebird/pages/bio/bio_edit_screen.dart';
 import 'package:lovebird/pages/bio/custom_circle_avatar.dart';
 import 'package:lovebird/widgets/bio_screen/text_devider.dart';
 import 'custom_circle_avatar.dart';
-import 'package:lovebird/config/routes/routing.dart';
 
 class BioScreen extends StatefulWidget {
   const BioScreen({Key? key}) : super(key: key);
@@ -59,7 +59,7 @@ class _BioScreenState extends State<BioScreen> {
                     onPrimary: Colors.white, // foreground
                   ),
                   onPressed: () {
-                    BioEditScreen();
+                    Navigator.of(context).pushNamed(AppRouting.bioeditRoute);
                   },
                   child: const Icon(Icons.edit, size: 30),
                 ),
