@@ -4,14 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/di.dart';
 import 'package:lovebird/pages/auth/login.dart';
-import 'package:lovebird/models/bio_model.dart';
+import 'package:lovebird/pages/bio/bio_edit_screen.dart';
 import 'package:lovebird/pages/bio/bio_screen.dart';
 import 'package:lovebird/pages/main/main_screen.dart';
 import 'package:lovebird/pages/match/match_screen.dart';
 import 'package:lovebird/pages/scan/scan_screen.dart';
 import 'package:lovebird/services/bio_service.dart';
 import 'package:lovebird/splash_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,8 +41,9 @@ class MyApp extends StatelessWidget {
           AppRouting.bioRoute: (context) => const BioScreen(),
           AppRouting.matchRoute: (context) => const MatchScreen(),
           AppRouting.mainRoute: (context) => const MainScreen(),
+          AppRouting.bioeditRoute: (context) => const BioEditScreen(),
         },
-        home: LoginScreen(),
+        home: const MainScreen(),
       ),
     );
   }
@@ -59,7 +59,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final int _counter = 0;
   BioServices bioServices = BioServices();
 
   void uploadBio() async {

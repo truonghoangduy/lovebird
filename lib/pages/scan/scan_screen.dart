@@ -14,14 +14,17 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   @override
   Widget build(BuildContext context) {
-    final items = <Widget>[
-      const Icon(Icons.home, size: 40, color: Colors.white),
-      const Icon(Icons.favorite, size: 40, color: Colors.white),
-      const Icon(Icons.person, size: 40, color: Colors.white),
-    ];
-    return Container(
-      child: Scaffold(
-        backgroundColor: Colors.red,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.tiffany,
+        centerTitle: true,
+        title: Text(
+          "Tìm kiếm tình yêu",
+        ),
+      ),
+      body: Center(
+        child: Image.network(
+            "https://media.giphy.com/media/3oriNO0p3Sn0itamg8/giphy.gif"),
       ),
     );
   }

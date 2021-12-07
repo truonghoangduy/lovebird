@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/config/styles/color.dart';
-import 'package:lovebird/pages/bio/bio_edit_screen.dart';
 import 'package:lovebird/pages/bio/custom_circle_avatar.dart';
 import 'package:lovebird/widgets/bio_screen/text_devider.dart';
 import 'custom_circle_avatar.dart';
 
-class BioScreen extends StatefulWidget {
-  const BioScreen({Key? key}) : super(key: key);
+class BioEditScreen extends StatefulWidget {
+  const BioEditScreen({Key? key}) : super(key: key);
 
   @override
-  _BioScreenState createState() => _BioScreenState();
+  _BioEditScreenState createState() => _BioEditScreenState();
 }
 
-class _BioScreenState extends State<BioScreen> {
+class _BioEditScreenState extends State<BioEditScreen> {
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   leading: IconButton(
+        //     icon: const Icon(Icons.arrow_back),
+        //     onPressed: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+        // ),
         backgroundColor: Colors.blueGrey[50],
         body: SizedBox(
           width: mediaQuery.width,
@@ -37,6 +44,16 @@ class _BioScreenState extends State<BioScreen> {
                   ),
                 ),
               ),
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
               const Positioned(
                   left: 0, right: 0, top: 40, child: CustomCircleAvatar()),
               SizedBox(
@@ -49,19 +66,6 @@ class _BioScreenState extends State<BioScreen> {
                         color: Colors.black,
                         fontSize: mediaQuery.width * 0.08),
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(320, 180, 4, 80),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: AppColors.tiffany, // background
-                    onPrimary: Colors.white, // foreground
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AppRouting.bioeditRoute);
-                  },
-                  child: const Icon(Icons.edit, size: 30),
                 ),
               ),
               Container(
@@ -79,7 +83,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          'Đang ở TP.Hồ Chí Minh',
+                          'Đang ở',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -97,7 +101,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          '24/12/1999',
+                          '',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -115,7 +119,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          'Giới tính: Nam',
+                          'Giới tính:',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
