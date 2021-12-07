@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lovebird/config/styles/color.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -16,9 +15,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: AppColors.primaryColor,
-        // ),
         body: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -30,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 "assets/img/svg/bg1_login.svg",
                 fit: BoxFit.cover,
                 width: mediaQuery.width,
-                height: mediaQuery.height * 0.75,
+                height: mediaQuery.width * 1.4,
               ),
             ),
             Padding(
@@ -42,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: Colors.black26,
                         blurRadius: 20,
@@ -54,11 +50,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        width: mediaQuery.width * 1.1,
-                        child: Image.asset(
-                          "assets/img/lovebird.png",
-                        ),
+                      Image.asset(
+                        "assets/img/lovebird.png",
                       ),
                       Container(
                         width: mediaQuery.width * 0.8,
@@ -66,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(40),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.black26,
                               blurRadius: 8,
@@ -84,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
+                                SizedBox(
                                   width: mediaQuery.width * 0.1,
                                   height: mediaQuery.width * 0.1,
                                   child:
@@ -93,9 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Text(
                                   'Sign in with Google',
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.black,
-                                      fontSize: mediaQuery.width * 0.055),
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                    fontSize: mediaQuery.width * 0.055,
+                                  ),
                                 ),
                               ],
                             ),
@@ -112,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
               left: 0,
               right: 0,
               child: SvgPicture.asset(
-                "assets/img/svg/bg2_login.svg",
+                "assets/img/svg/bg2_login_1.svg",
                 fit: BoxFit.cover,
               ),
             ),
