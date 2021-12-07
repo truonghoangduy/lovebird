@@ -39,7 +39,12 @@ class BuildCard extends StatelessWidget {
               SizedBox(height: mediaQuery.width * 0.04),
               Material(
                 child: InkWell(
-                  onTap: () async => {await showBioInfoDialog(bio, context)},
+                  onTap: () async => {
+                    if (this.status == "Away")
+                      {await showBioInfoDenail(context)}
+                    else
+                      {await showBioInfoDialog(bio, context)},
+                  },
                   child: Container(
                     width: mediaQuery.width * 0.2,
                     height: mediaQuery.width * 0.2,
