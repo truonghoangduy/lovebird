@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lovebird/config/styles/color.dart';
+import 'package:lovebird/ultis/helper.dart';
 
 class BuildCard extends StatelessWidget {
   const BuildCard({
@@ -44,7 +45,7 @@ class BuildCard extends StatelessWidget {
               ),
               SizedBox(height: mediaQuery.width * 0.04),
               Text(
-                this.name,
+                Helper.customName(this.name),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: mediaQuery.width * 0.055,
