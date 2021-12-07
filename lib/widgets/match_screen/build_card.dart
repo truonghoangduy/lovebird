@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lovebird/config/styles/color.dart';
+import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/ultis/helper.dart';
+import 'package:lovebird/widgets/bio_screen/bio_dialog.dart';
 
 class BuildCard extends StatelessWidget {
   const BuildCard({
@@ -10,12 +12,14 @@ class BuildCard extends StatelessWidget {
     required this.status,
     required this.cardIndex,
     required this.imageUrl,
+    required this.bio,
   }) : super(key: key);
   final String name;
   final String dob;
   final String status;
   final int cardIndex;
   final String imageUrl;
+  final Bio bio;
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
@@ -33,14 +37,19 @@ class BuildCard extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: mediaQuery.width * 0.04),
-              Container(
-                width: mediaQuery.width * 0.2,
-                height: mediaQuery.width * 0.2,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
-                  color: AppColors.primaryColor,
-                  image: DecorationImage(
-                    image: NetworkImage(this.imageUrl),
+              Material(
+                child: InkWell(
+                  onTap: () async => {await showBioInfoDialog(bio, context)},
+                  child: Container(
+                    width: mediaQuery.width * 0.2,
+                    height: mediaQuery.width * 0.2,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(60),
+                      color: AppColors.primaryColor,
+                      image: DecorationImage(
+                        image: NetworkImage(this.imageUrl),
+                      ),
+                    ),
                   ),
                 ),
               ),

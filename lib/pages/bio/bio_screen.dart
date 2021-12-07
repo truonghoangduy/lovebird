@@ -75,7 +75,7 @@ class _BioScreenState extends State<BioScreen> {
                               style: TextStyle(
                                   fontWeight: FontWeight.w900,
                                   color: Colors.black,
-                                  fontSize: mediaQuery.width * 0.08),
+                                  fontSize: mediaQuery.width * 0.055),
                             ),
                           ),
                         ),

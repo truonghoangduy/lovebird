@@ -68,9 +68,10 @@ class _ListYouLoveState extends State<ListYouLove> {
                       ...snapshot.data!.map((e) {
                         var status = e.isAccept ? "Active" : "Away";
                         return BuildCard(
+                          bio: e.otherBio,
                           status: status,
                           cardIndex: 0,
-                          dob: '1999',
+                          dob: '----',
                           imageUrl: e.otherBio.avatar!,
                           name: e.otherBio.name!,
                         );

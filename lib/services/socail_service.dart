@@ -53,7 +53,7 @@ class SocailSerive {
     var myPendingData = await myRef.get();
     var otherPath = myPendingData.get("other_ref") as String;
 
-    var otherPathRef = collectionReference.doc(otherPath);
+    var otherPathRef = FirebaseFirestore.instance.doc(otherPath);
     await otherPathRef.update({"isAccepted": true});
     await myRef.update({"isAccepted": true});
 
@@ -65,6 +65,14 @@ class SocailSerive {
     return collectionReference
         .doc(myUUID)
         .collection(ApiPath.watchPendingRequestCollectionRef)
+        .snapshots();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> watchMyPendingListRequest(
+      String myUUID) {
+    return collectionReference
+        .doc(myUUID)
+        .collection(ApiPath.pendingCollectionRef)
         .snapshots();
   }
 }

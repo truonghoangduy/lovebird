@@ -5,6 +5,7 @@ import 'package:lovebird/blocs/scan/bloc/scan_bloc.dart';
 import 'package:lovebird/config/styles/color.dart';
 import 'package:lovebird/ultis/helper.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:lovebird/widgets/bio_screen/bio_dialog.dart';
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({Key? key}) : super(key: key);
@@ -127,18 +128,25 @@ class _ScanScreenState extends State<ScanScreen> {
                                       SizedBox(
                                         width: mediaQuery.width * 0.04,
                                       ),
-                                      Container(
-                                        width: mediaQuery.width * 0.15,
-                                        height: mediaQuery.width * 0.15,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(60),
-                                          color: AppColors.primaryColor,
-                                          image: DecorationImage(
-                                            image: NetworkImage(
-                                                e.avatar!.toString()
-                                                // 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/p320x320/249233916_3070314433217063_7410007586773100947_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=m0OrDFFbgtIAX-7C2jy&_nc_ht=scontent.fsgn2-4.fna&oh=cc2bb385bc4899d196e53a56814593e6&oe=61B37D7A',
-                                                ),
+                                      Material(
+                                        child: InkWell(
+                                          onTap: () async => {
+                                            // await showBioInfoDialog(e, context)
+                                          },
+                                          child: Container(
+                                            width: mediaQuery.width * 0.15,
+                                            height: mediaQuery.width * 0.15,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(60),
+                                              color: AppColors.primaryColor,
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                    e.avatar!.toString()
+                                                    // 'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/p320x320/249233916_3070314433217063_7410007586773100947_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=m0OrDFFbgtIAX-7C2jy&_nc_ht=scontent.fsgn2-4.fna&oh=cc2bb385bc4899d196e53a56814593e6&oe=61B37D7A',
+                                                    ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -160,7 +168,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                             ),
                                           ),
                                           Text(
-                                            e.address ?? "",
+                                            e.address ?? "----hidden----",
                                             style: TextStyle(
                                                 fontSize:
                                                     mediaQuery.width * 0.045,
@@ -168,7 +176,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                                 color: Colors.black54),
                                           ),
                                           Text(
-                                            e.geoFirePoint!.latitude.toString(),
+                                            "----",
                                             style: TextStyle(
                                                 fontSize:
                                                     mediaQuery.width * 0.045,
