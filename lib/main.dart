@@ -9,6 +9,7 @@ import 'package:lovebird/pages/bio/bio_screen.dart';
 import 'package:lovebird/pages/main/main_screen.dart';
 import 'package:lovebird/pages/match/match_screen.dart';
 import 'package:lovebird/pages/scan/scan_screen.dart';
+import 'package:lovebird/pages/test.dart';
 import 'package:lovebird/services/bio_service.dart';
 import 'package:lovebird/splash_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           AppRouting.matchRoute: (context) => const MatchScreen(),
           AppRouting.mainRoute: (context) => const MainScreen(),
         },
-        home: LoginScreen(),
+        home: ScanScreen(),
       ),
     );
   }
