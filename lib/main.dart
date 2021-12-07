@@ -41,19 +41,9 @@ class MyApp extends StatelessWidget {
           AppRouting.scanRoute: (context) => const ScanScreen(),
           AppRouting.bioRoute: (context) => const BioScreen(),
           AppRouting.matchRoute: (context) => const MatchScreen(),
+          AppRouting.mainRoute: (context) => const MainScreen(),
         },
-        // routes: ,
-        // ignore: prefer_const_constructors
-        //   home: AnimatedSplashScreen(
-        //       duration: 2000,
-        //       splash: Image.asset("assets/img/lovebird.png"),
-        //       nextScreen: ,
-        //       splashTransition: SplashTransition.fadeTransition,
-        //       // pageTransitionType: PageTransitionType.scale,
-        //       backgroundColor: Colors.white),
-        home: LoginScreen(
-          key: key,
-        ),
+        home: LoginScreen(),
       ),
     );
   }
