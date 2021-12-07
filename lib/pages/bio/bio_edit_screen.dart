@@ -21,6 +21,7 @@ class _BioEditScreenState extends State<BioEditScreen> {
         backgroundColor: Colors.blueGrey[50],
         appBar: AppBar(
           title: const Text("Chi tiết thông tin"),
+          backgroundColor: AppColors.primaryColor,
           automaticallyImplyLeading: false,
           leading: IconButton(
             icon: const Icon(

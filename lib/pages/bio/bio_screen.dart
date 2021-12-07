@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/config/styles/color.dart';
-import 'package:lovebird/pages/bio/bio_edit_screen.dart';
 import 'package:lovebird/pages/bio/custom_circle_avatar.dart';
 import 'package:lovebird/widgets/bio_screen/text_devider.dart';
 import 'custom_circle_avatar.dart';
@@ -52,6 +51,13 @@ class _BioScreenState extends State<BioScreen> {
                           fontSize: mediaQuery.width * 0.08),
                     ),
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () {}, icon: Icon(Icons.logout, size: 30)),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(320, 180, 4, 80),
