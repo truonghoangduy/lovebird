@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -35,24 +36,43 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //Size mediaQuery = MediaQuery.of(context).size;
     return DependecyProvider(
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      child: DoesViaWeb(
+        child: MaterialApp(
+          useInheritedMediaQuery: true,
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          routes: {
+            AppRouting.loginRoute: (context) => const LoginScreen(),
+            AppRouting.splashRoute: (context) => const SplashScreen(),
+            AppRouting.scanRoute: (context) => const ScanScreen(),
+            AppRouting.bioRoute: (context) => const BioScreen(),
+            AppRouting.matchRoute: (context) => const MatchScreen(),
+            AppRouting.mainRoute: (context) => const MainScreen(),
+            AppRouting.bioeditRoute: (context) => BioEditScreen(),
+          },
+          home: const LoginScreen(),
         ),
-        routes: {
-          AppRouting.loginRoute: (context) => const LoginScreen(),
-          AppRouting.splashRoute: (context) => const SplashScreen(),
-          AppRouting.scanRoute: (context) => const ScanScreen(),
-          AppRouting.bioRoute: (context) => const BioScreen(),
-          AppRouting.matchRoute: (context) => const MatchScreen(),
-          AppRouting.mainRoute: (context) => const MainScreen(),
-          AppRouting.bioeditRoute: (context) => BioEditScreen(),
-        },
-        home: const LoginScreen(),
       ),
     );
+  }
+}
+
+class DoesViaWeb extends StatelessWidget {
+  final Widget child;
+  const DoesViaWeb({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return kIsWeb
+        ? DevicePreview(
+            isToolbarVisible: false,
+            enabled: true,
+            builder: (context) => child,
+          )
+        : child;
   }
 }
 
