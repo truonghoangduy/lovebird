@@ -9,11 +9,13 @@ class BuildCard extends StatelessWidget {
     required this.dob,
     required this.status,
     required this.cardIndex,
+    required this.imageUrl,
   }) : super(key: key);
   final String name;
   final String dob;
   final String status;
   final int cardIndex;
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
@@ -38,8 +40,7 @@ class BuildCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(60),
                   color: AppColors.primaryColor,
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/p320x320/249233916_3070314433217063_7410007586773100947_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=m0OrDFFbgtIAX-7C2jy&_nc_ht=scontent.fsgn2-4.fna&oh=cc2bb385bc4899d196e53a56814593e6&oe=61B37D7A'),
+                    image: NetworkImage(this.imageUrl),
                   ),
                 ),
               ),
