@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lovebird/config/styles/color.dart';
+import 'package:lovebird/widgets/match_screen/list_love_me.dart';
 import 'package:lovebird/widgets/match_screen/list_you_love.dart';
 
 class MatchScreen extends StatefulWidget {
@@ -45,9 +46,7 @@ class _MatchScreenState extends State<MatchScreen> {
           body: TabBarView(
             children: [
               ListYouLove(),
-              Center(
-                child: Text('hello2'),
-              ),
+              ListLoveMe(),
             ],
           ),
         ),
