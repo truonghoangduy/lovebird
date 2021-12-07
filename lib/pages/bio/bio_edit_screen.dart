@@ -18,6 +18,15 @@ class _BioEditScreenState extends State<BioEditScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   leading: IconButton(
+        //     icon: const Icon(Icons.arrow_back),
+        //     onPressed: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+        // ),
         backgroundColor: Colors.blueGrey[50],
         body: SizedBox(
           width: mediaQuery.width,
@@ -34,6 +43,16 @@ class _BioEditScreenState extends State<BioEditScreen> {
                     bottomRight: Radius.circular(80),
                   ),
                 ),
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
               const Positioned(
                   left: 0, right: 0, top: 40, child: CustomCircleAvatar()),

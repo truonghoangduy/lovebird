@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/di.dart';
 import 'package:lovebird/pages/auth/login.dart';
+import 'package:lovebird/pages/bio/bio_edit_screen.dart';
 import 'package:lovebird/pages/bio/bio_screen.dart';
 import 'package:lovebird/pages/main/main_screen.dart';
 import 'package:lovebird/pages/match/match_screen.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           AppRouting.bioRoute: (context) => const BioScreen(),
           AppRouting.matchRoute: (context) => const MatchScreen(),
           AppRouting.mainRoute: (context) => const MainScreen(),
-          // AppRouting.bioeditRoute: (context) => const BioEditScreen(),
+          AppRouting.bioeditRoute: (context) => const BioEditScreen(),
         },
         home: LoginScreen(),
       ),
