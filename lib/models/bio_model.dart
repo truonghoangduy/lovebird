@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
+
 class Bio {
   int? sex;
   String? avatar;
@@ -7,6 +10,7 @@ class Bio {
   String? name;
   String? address;
   List<String>? socialUrl;
+  GeoFirePoint? geoFirePoint;
 
   Bio(
       {required this.sex,
@@ -19,14 +23,16 @@ class Bio {
       required this.socialUrl});
 
   Bio.fromJson(Map<String, dynamic> json) {
-    sex = json['sex'];
-    avatar = json['avatar'];
-    background = json['background'];
-    nickName = json['nickName'];
-    hobbies = json['hobbies'].cast<String>();
-    name = json['name'];
-    address = json['address'];
-    socialUrl = json['social_url'].cast<String>();
+    // sex = json['sex'];
+    // avatar = json['avatar'];
+    // background = json['background'];
+    // nickName = json['nickName'];
+    // hobbies = json['hobbies'] ?? json['hobbies'].cast<String>();
+    // name = json['name'];
+    // address = json['address'];
+    // socialUrl = json['social_url'].cast<String>();
+    geoFirePoint = GeoFirePoint(json['position']['geopoint'].latitude,
+        json['position']['geopoint'].longitude);
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +45,7 @@ class Bio {
     data['name'] = name;
     data['address'] = address;
     data['social_url'] = socialUrl;
+    data['position'] = geoFirePoint!.data;
     return data;
   }
 }

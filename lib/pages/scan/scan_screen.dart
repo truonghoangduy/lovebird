@@ -1,10 +1,7 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lovebird/blocs/scan/bloc/scan_bloc.dart';
 import 'package:lovebird/config/styles/color.dart';
-import 'package:lovebird/pages/bio/bio_screen.dart';
-import 'package:lovebird/pages/match/match_screen.dart';
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({Key? key}) : super(key: key);
@@ -23,29 +20,48 @@ class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ScanBloc, ScanState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: AppColors.tiffany,
-            title: const Text(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.tiffany,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            const Text(
               "Tìm kiếm tình yêu",
               textAlign: TextAlign.center,
             ),
-          ),
-          body: Stack(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                child: Container(),
-              )
-            ],
-          ),
-        );
-      },
+            IconButton(
+              onPressed: () => {context.read<ScanBloc>().add(ScanStartEvent())},
+              icon: const Icon(Icons.replay_rounded),
+              color: Colors.red,
+            ),
+          ],
+        ),
+      ),
+      body: BlocConsumer<ScanBloc, ScanState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          if (state is ScanResult) {
+            return Column(
+              children: state.scanResult
+                  .map((e) => Text(e.geoFirePoint!.latitude.toString()))
+                  .toList(),
+            );
+          }
+
+          //   child: Image.network(
+          // "https://media.giphy.com/media/3oriNO0p3Sn0itamg8/giphy.gif%22)",
+          return Stack(children: [
+            Center(
+                child: Image.network(
+                    "https://media.giphy.com/media/3oriNO0p3Sn0itamg8/giphy.gif"))
+          ]);
+        },
+      ),
     );
   }
 }

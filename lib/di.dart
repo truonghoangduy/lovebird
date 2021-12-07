@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lovebird/blocs/authentication/authentication_bloc.dart';
+import 'package:lovebird/blocs/scan/bloc/scan_bloc.dart';
 import 'package:lovebird/services/auth/authenticaiton_repository.dart';
 import 'package:lovebird/services/auth/providers/authentication_firebase_provider.dart';
 import 'package:lovebird/services/auth/providers/google_sign_in_provider.dart';
@@ -35,7 +36,10 @@ class _DependecyProviderState extends State<DependecyProvider> {
               return AuthenticationBloc(
                   authenticationRepository:
                       RepositoryProvider.of<AuthenticationRepository>(context));
-            })
+            }),
+        BlocProvider(create: (context) {
+          return ScanBloc();
+        })
       ], child: widget.child),
     );
   }
