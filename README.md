@@ -4,8 +4,15 @@ A new Flutter project.
 
 ##### ``` Installation ```
 1. the application only run on ```real device``` due to GPS functionality.
-2. build release on Android/ios
+2. build release on Android/IOS/ Web
 
+
+```python
+    if lazy is None:
+        add_picture()
+        add_more_readme()
+```
+<img src="./docs/imgs/flutter_web.jpg" style="width:65%">
 
 ##### ``` Tech Feature ```
 1. Sign in with google account.
