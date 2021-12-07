@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       //       splashTransition: SplashTransition.fadeTransition,
       //       // pageTransitionType: PageTransitionType.scale,
       //       backgroundColor: Colors.white),
-      home: MainScreen(
+      home: BioScreen(
         key: key,
       ),
     );
