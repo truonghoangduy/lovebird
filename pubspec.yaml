@@ -40,6 +40,13 @@ dependencies:
   curved_navigation_bar: ^1.0.1
   animated_splash_screen: ^1.1.0
   flutter_svg: ^1.0.0
+  geoflutterfire:
+    git: git://github.com/PavelClaudiuStefan/GeoFlutterFire.git
+  firebase_auth: ^3.3.0
+  google_sign_in: ^5.2.1
+  flutter_bloc: ^8.0.0
+  bloc: ^8.0.1
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
