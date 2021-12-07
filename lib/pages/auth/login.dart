@@ -112,9 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Text(
                                       'Sign in with Google',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                          fontSize: mediaQuery.width * 0.055),
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                        fontSize: mediaQuery.width * 0.055,
+                                      ),
                                     ),
                                   ],
                                 ),

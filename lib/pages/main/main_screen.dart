@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
       const Icon(Icons.person, size: 40, color: Colors.white),
     ];
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       body: screens[index],
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,
