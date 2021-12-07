@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lovebird/login.dart';
+import 'package:lovebird/pages/auth/login.dart';
 
 import 'main.dart';
 
