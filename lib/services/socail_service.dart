@@ -34,14 +34,14 @@ class SocailSerive {
     var otherBioRef = bioCollectionReference.doc(otherUUID);
     var myBioRef = bioCollectionReference.doc(myUUID);
     await myRef.set({
-      "other_ref": otherRef,
+      "other_ref": otherRef.path,
       "isAccepted": false,
       "other_bio_ref": otherBioRef.path
     });
     await otherRef.set({
       "other_ref": myRef.path,
       "isAccepted": false,
-      "other_bio_ref": myBioRef
+      "other_bio_ref": myBioRef.path
     });
   }
 
@@ -58,5 +58,13 @@ class SocailSerive {
     await myRef.update({"isAccepted": true});
 
     // myPendingData = myPendingData.
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> watchPendingRequest(
+      String myUUID) {
+    return collectionReference
+        .doc(myUUID)
+        .collection(ApiPath.watchPendingRequestCollectionRef)
+        .snapshots();
   }
 }

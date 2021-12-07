@@ -52,8 +52,8 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
       var queryData =
           await locationSerivces.queryNearGeoPoint(myLocation, user.uid!);
       await Future.delayed(Duration(seconds: 5));
-      // queryData =
-      //     queryData.where((element) => element.uuid != user.uid).toList();
+      queryData =
+          queryData.where((element) => element.uuid != user.uid).toList();
       emit(ScanResult(queryData + fakeData));
     } catch (e) {
       // user denial gps location
@@ -64,14 +64,14 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
   _generateFakeBio() {
     for (var i = 0; i < 5; i++) {
       fakeData.add(Bio(
-          uuid: "xxxxtest" + i.toString(),
+          uuid: "DevFest " + i.toString(),
           sex: 0,
           avatar:
               "https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/p320x320/249233916_3070314433217063_7410007586773100947_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=m0OrDFFbgtIAX-7C2jy&_nc_ht=scontent.fsgn2-4.fna&oh=cc2bb385bc4899d196e53a56814593e6&oe=61B37D7A",
           background: "background",
           nickName: "nickName" + i.toString(),
           hobbies: ["hobbies"],
-          name: "Fake" + i.toString(),
+          name: "DevFest " + i.toString(),
           address: "address",
           geoFirePoint: GeoFirePoint(10.835519382256361, 10.835519382256361),
           socialUrl: ["socialUrl"]));
