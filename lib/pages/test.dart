@@ -38,23 +38,23 @@ class _TestPageState extends State<TestPage> with WidgetsBindingObserver {
               future: locationSerivces.getUserGeoPoint(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return FutureBuilder<List<Bio>>(
-                      future:
-                          locationSerivces.queryNearGeoPoint(snapshot.data!),
-                      builder: (builder, data) {
-                        if (data.hasData) {
-                          print(data.data);
-                          return Column(
-                            children: [
-                              ...data.data!
-                                  .map((e) =>
-                                      Text(e.geoFirePoint!.latitude.toString()))
-                                  .toList()
-                            ],
-                          );
-                        }
-                        return Container();
-                      });
+                  // return FutureBuilder<List<Bio>>(
+                  //     future:
+                  //         locationSerivces.queryNearGeoPoint(snapshot.data!),
+                  //     builder: (builder, data) {
+                  //       if (data.hasData) {
+                  //         print(data.data);
+                  //         return Column(
+                  //           children: [
+                  //             ...data.data!
+                  //                 .map((e) =>
+                  //                     Text(e.geoFirePoint!.latitude.toString()))
+                  //                 .toList()
+                  //           ],
+                  //         );
+                  //       }
+                  //       return Container();
+                  //     });
                 }
                 return Container();
               })

@@ -3,6 +3,7 @@ import 'package:geoflutterfire/geoflutterfire.dart';
 
 class Bio {
   int? sex;
+  String? uuid;
   String? avatar;
   String? background;
   String? nickName;
@@ -15,6 +16,7 @@ class Bio {
 
   Bio(
       {required this.sex,
+      required this.uuid,
       required this.avatar,
       required this.background,
       required this.nickName,
@@ -26,6 +28,7 @@ class Bio {
 
   Bio.fromJson(Map<String, dynamic> json) {
     sex = json['sex'];
+    uuid = json["uuid"];
     avatar = json['avatar'];
     background = json['background'];
     nickName = json['nickName'];
@@ -39,7 +42,14 @@ class Bio {
 
     name = json['name'];
     address = json['address'];
-    socialUrl = json['social_url'].cast<String>();
+    // socialUrl = json['social_url'].cast<String>();
+
+    if (json['social_url'] != null) {
+      socialUrl = <String>[];
+      json['social_url'].forEach((v) {
+        socialUrl!.add(v);
+      });
+    }
 
     if (json['position'] != null) {
       geoFirePoint = GeoFirePoint(json['position']['geopoint'].latitude,
@@ -60,6 +70,7 @@ class Bio {
     if (geoFirePoint != null) {
       data['position'] = geoFirePoint!.data;
     }
+    data["uuid"] = uuid;
     return data;
   }
 }

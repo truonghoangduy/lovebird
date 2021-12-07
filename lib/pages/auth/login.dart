@@ -34,14 +34,15 @@ class _LoginScreenState extends State<LoginScreen> {
             var queryResult = await userRef.get();
             if (!queryResult.exists) {
               userRef.set(Bio(
-                  sex: 0,
+                  uuid: user.uid,
+                  sex: null,
                   avatar: user.photoUrl,
-                  background: "background",
-                  nickName: "nickName",
-                  hobbies: [""],
+                  background: null,
+                  nickName: null,
+                  hobbies: [],
                   name: user.name,
-                  address: "address",
-                  socialUrl: [""]).toJson());
+                  address: null,
+                  socialUrl: []).toJson());
             }
             Navigator.of(context).popAndPushNamed(AppRouting.mainRoute);
           }

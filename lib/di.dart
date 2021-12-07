@@ -37,9 +37,13 @@ class _DependecyProviderState extends State<DependecyProvider> {
                   authenticationRepository:
                       RepositoryProvider.of<AuthenticationRepository>(context));
             }),
-        BlocProvider(create: (context) {
-          return ScanBloc();
-        })
+        BlocProvider(
+            lazy: false,
+            create: (context) {
+              return ScanBloc(
+                  authenticationBloc:
+                      BlocProvider.of<AuthenticationBloc>(context));
+            })
       ], child: widget.child),
     );
   }

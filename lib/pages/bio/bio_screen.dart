@@ -123,7 +123,7 @@ class _BioScreenState extends State<BioScreen> {
                                     width: mediaQuery.width * 0.02,
                                   ),
                                   Text(
-                                    'Đang ở TP.Hồ Chí Minh',
+                                    bio.address ?? 'Đang ở TP.Hồ Chí Minh',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         color: Colors.black,

@@ -59,16 +59,16 @@ class _BioEditScreenState extends State<BioEditScreen> {
             ),
             onPressed: () {
               var links = socailLinkTextController.map((e) => e.text).toList();
-              var newBio = Bio(
-                  sex: 0,
-                  avatar: "avatar",
-                  background: "background",
-                  nickName: "nickName",
-                  hobbies: [""],
-                  name: "name",
-                  address: locationController.text,
-                  socialUrl: links);
-              Navigator.of(context).pop(newBio);
+              // var newBio = Bio(
+              //     sex: 0,
+              //     avatar: "avatar",
+              //     background: "background",
+              //     nickName: "nickName",
+              //     hobbies: [""],
+              //     name: "name",
+              //     address: locationController.text,
+              //     socialUrl: links);
+              Navigator.of(context).pop();
             },
           ),
         ),

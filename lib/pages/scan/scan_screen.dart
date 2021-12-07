@@ -4,6 +4,7 @@ import 'package:like_button/like_button.dart';
 import 'package:lovebird/blocs/scan/bloc/scan_bloc.dart';
 import 'package:lovebird/config/styles/color.dart';
 import 'package:lovebird/ultis/helper.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({Key? key}) : super(key: key);
@@ -18,6 +19,14 @@ class _ScanScreenState extends State<ScanScreen> {
     context.read<ScanBloc>().add(ScanStartEvent());
     super.initState();
   }
+
+  final colorizeColors = [
+    Colors.purple,
+    Colors.blue,
+    AppColors.tiffany,
+    Colors.yellow,
+    Colors.red,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +57,48 @@ class _ScanScreenState extends State<ScanScreen> {
           // TODO: implement listener
         },
         builder: (context, state) {
+          Size mediaQuery = MediaQuery.of(context).size;
+
+          if (state is ScanFail) {
+            return Center(
+              child: Text(state.mess),
+            );
+          }
+
           if (state is ScanResult) {
-            Size mediaQuery = MediaQuery.of(context).size;
+            if (state.scanResult.length == 0) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/img/lovebird.png"),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    child: AnimatedTextKit(
+                      pause: const Duration(milliseconds: 200),
+                      repeatForever: true,
+                      isRepeatingAnimation: true,
+                      animatedTexts: [
+                        ColorizeAnimatedText(
+                          "You're so lonely :>",
+                          textStyle: const TextStyle(
+                            fontSize: 35.0,
+                          ),
+                          colors: colorizeColors,
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () =>
+                        {context.read<ScanBloc>().add(ScanStartEvent())},
+                    icon: const Icon(Icons.replay_rounded),
+                    color: Colors.blueGrey,
+                    iconSize: mediaQuery.width * 0.1,
+                  ),
+                ],
+              );
+            }
             return ListView(
               children: state.scanResult
                   .map((e) => Padding(
@@ -111,7 +160,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                             ),
                                           ),
                                           Text(
-                                            e.address!.toString(),
+                                            e.address ?? "",
                                             style: TextStyle(
                                                 fontSize:
                                                     mediaQuery.width * 0.045,

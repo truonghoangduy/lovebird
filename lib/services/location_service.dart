@@ -19,6 +19,10 @@ class LocationSerivces {
     while (await _location.hasPermission() != PermissionStatus.granted) {
       await _location.requestPermission();
     }
+    if (await _location.hasPermission() == PermissionStatus.deniedForever) {
+      throw Exception(
+          "Please enable for GPS in OS sestting for scaning near by lovebird");
+    }
     return true;
   }
 
@@ -27,11 +31,13 @@ class LocationSerivces {
     return await _location.getLocation();
   }
 
-  Future<List<Bio>> queryNearGeoPoint(LocationData mylocation,
+  Future<List<Bio>> queryNearGeoPoint(LocationData mylocation, String myUUID,
       {double radiusRange = 30}) async {
     var myGeo = geo.point(
         latitude: mylocation.latitude!, longitude: mylocation.latitude!);
     var bioRef = _firestore.collection(ApiPath.bioCollectionRef);
+    // Query by not equal uuid not working lib error
+    // .where("uuid", isNotEqualTo: myUUID);
     var query = await geo
         .collection(collectionRef: bioRef)
         .within(center: myGeo, radius: radiusRange, field: "position")
@@ -41,6 +47,9 @@ class LocationSerivces {
         return e.data();
       }
     }).toList();
+    if (data.length == 0) {
+      return [];
+    }
     return data.map((e) => Bio.fromJson(e as Map<String, dynamic>)).toList();
   }
 }
