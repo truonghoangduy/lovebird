@@ -9,7 +9,7 @@ import 'package:lovebird/config/styles/color.dart';
 import 'package:lovebird/services/auth/models/enum.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -112,9 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Text(
                                       'Sign in with Google',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black,
-                                          fontSize: mediaQuery.width * 0.055),
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                        fontSize: mediaQuery.width * 0.055,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -131,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   left: 0,
                   right: 0,
                   child: SvgPicture.asset(
-                    "assets/img/svg/bg2_login.svg",
+                    "assets/img/svg/bg2_login_1.svg",
                     fit: BoxFit.cover,
                   ),
                 ),
