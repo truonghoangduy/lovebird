@@ -15,7 +15,6 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     context.read<ScanBloc>().add(ScanStartEvent());
     super.initState();
   }
