@@ -15,7 +15,7 @@ class TextDivider extends StatelessWidget {
     Size mediaQuery = MediaQuery.of(context).size;
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-      child: Container(
+      child: SizedBox(
         width: mediaQuery.width * 0.8,
         child: Row(
           children: <Widget>[
