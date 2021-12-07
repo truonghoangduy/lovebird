@@ -22,12 +22,12 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final items = <Widget>[
-      const Icon(Icons.home, size: 40, color: Colors.white),
+      const Icon(Icons.travel_explore, size: 40, color: Colors.white),
       const Icon(Icons.favorite, size: 40, color: Colors.white),
       const Icon(Icons.person, size: 40, color: Colors.white),
     ];
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       body: screens[index],
       bottomNavigationBar: CurvedNavigationBar(
         height: 60,

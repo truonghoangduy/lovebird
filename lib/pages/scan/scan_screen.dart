@@ -29,6 +29,13 @@ class _ScanScreenState extends State<ScanScreen> {
       },
       builder: (context, state) {
         return Scaffold(
+          appBar: AppBar(
+            backgroundColor: AppColors.tiffany,
+            title: const Text(
+              "Tìm kiếm tình yêu",
+              textAlign: TextAlign.center,
+            ),
+          ),
           body: Stack(
             children: [
               Container(
