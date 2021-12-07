@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lovebird/config/styles/color.dart';
+import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/pages/bio/custom_circle_avatar.dart';
 import 'package:lovebird/widgets/bio_screen/text_devider.dart';
 import 'custom_circle_avatar.dart';
 
 class BioEditScreen extends StatefulWidget {
-  const BioEditScreen({Key? key}) : super(key: key);
+  BioEditScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _BioEditScreenState createState() => _BioEditScreenState();
@@ -13,7 +16,32 @@ class BioEditScreen extends StatefulWidget {
 
 class _BioEditScreenState extends State<BioEditScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  final TextEditingController locationController = TextEditingController();
+  final List<TextEditingController> socailLinkTextController = [
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController()
+  ];
+
+  _LoadOldBio(Bio oldBio) {
+    if (oldBio != null) {
+      locationController.text = oldBio.address!;
+      for (var i = 0; i < oldBio.socialUrl!.length; i++) {
+        socailLinkTextController[i].text = oldBio.socialUrl![i];
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var oldBio = ModalRoute.of(context)!.settings.arguments as Bio;
+    this._LoadOldBio(oldBio);
     Size mediaQuery = MediaQuery.of(context).size;
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
@@ -30,7 +58,17 @@ class _BioEditScreenState extends State<BioEditScreen> {
               size: 40,
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              var links = socailLinkTextController.map((e) => e.text).toList();
+              var newBio = Bio(
+                  sex: 0,
+                  avatar: "avatar",
+                  background: "background",
+                  nickName: "nickName",
+                  hobbies: [""],
+                  name: "name",
+                  address: locationController.text,
+                  socialUrl: links);
+              Navigator.of(context).pop(newBio);
             },
           ),
         ),
@@ -63,6 +101,7 @@ class _BioEditScreenState extends State<BioEditScreen> {
                     ],
                   ),
                   TextFormField(
+                    controller: locationController,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'Bạn đang ở... ',

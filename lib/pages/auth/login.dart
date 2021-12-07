@@ -1,11 +1,14 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lovebird/blocs/authentication/authentication_bloc.dart';
 import 'package:lovebird/config/routes/routing.dart';
 import 'package:lovebird/config/styles/color.dart';
+import 'package:lovebird/constant/api_constant.dart';
+import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/services/auth/models/enum.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,8 +25,24 @@ class _LoginScreenState extends State<LoginScreen> {
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is AuthenticationSuccess) {
+            var user = state.authenticationDetail;
+            var userRef = FirebaseFirestore.instance
+                .collection(ApiPath.bioCollectionRef)
+                .doc(user.uid);
+            var queryResult = await userRef.get();
+            if (!queryResult.exists) {
+              userRef.set(Bio(
+                  sex: 0,
+                  avatar: user.photoUrl,
+                  background: "background",
+                  nickName: "nickName",
+                  hobbies: [""],
+                  name: user.name,
+                  address: "address",
+                  socialUrl: [""]).toJson());
+            }
             Navigator.of(context).popAndPushNamed(AppRouting.mainRoute);
           }
         },

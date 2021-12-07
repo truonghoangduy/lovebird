@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           AppRouting.bioRoute: (context) => const BioScreen(),
           AppRouting.matchRoute: (context) => const MatchScreen(),
           AppRouting.mainRoute: (context) => const MainScreen(),
-          AppRouting.bioeditRoute: (context) => const BioEditScreen(),
+          AppRouting.bioeditRoute: (context) => BioEditScreen(),
         },
         home: const LoginScreen(),
       ),
