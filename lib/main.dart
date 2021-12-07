@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lovebird/config/routes/routing.dart';
+import 'package:lovebird/di.dart';
 import 'package:lovebird/pages/auth/login.dart';
 import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/pages/bio/bio_edit_screen.dart';
@@ -29,30 +30,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //Size mediaQuery = MediaQuery.of(context).size;
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        AppRouting.loginRoute: (context) => LoginScreen(),
-        AppRouting.splashRoute: (context) => const SplashScreen(),
-        AppRouting.scanRoute: (context) => const ScanScreen(),
-        AppRouting.bioRoute: (context) => const BioScreen(),
-        AppRouting.matchRoute: (context) => const MatchScreen(),
-        AppRouting.bioeditRoute: (context) => const BioEditScreen(),
-      },
-      // routes: ,
-      // ignore: prefer_const_constructors
-      //   home: AnimatedSplashScreen(
-      //       duration: 2000,
-      //       splash: Image.asset("assets/img/lovebird.png"),
-      //       nextScreen: ,
-      //       splashTransition: SplashTransition.fadeTransition,
-      //       // pageTransitionType: PageTransitionType.scale,
-      //       backgroundColor: Colors.white),
-      home: MainScreen(
-        key: key,
+    return DependecyProvider(
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routes: {
+          AppRouting.loginRoute: (context) => LoginScreen(),
+          AppRouting.splashRoute: (context) => const SplashScreen(),
+          AppRouting.scanRoute: (context) => const ScanScreen(),
+          AppRouting.bioRoute: (context) => const BioScreen(),
+          AppRouting.matchRoute: (context) => const MatchScreen(),
+          // AppRouting.mainRoute: (context) => const MainScreen(),
+          AppRouting.bioeditRoute: (context) => const BioEditScreen(),
+        },
+        home: LoginScreen(),
       ),
     );
   }
