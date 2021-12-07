@@ -11,6 +11,7 @@ class AppRouting {
   static const matchRoute = "/match";
   static const splashRoute = "/splash";
   static const bioeditRoute = "/edit";
+  static const mainRoute = "/main";
 }
 
 class WidgetKey {
