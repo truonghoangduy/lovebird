@@ -4,14 +4,14 @@ import 'package:lovebird/pages/bio/custom_circle_avatar.dart';
 import 'package:lovebird/widgets/bio_screen/text_devider.dart';
 import 'custom_circle_avatar.dart';
 
-class BioScreen extends StatefulWidget {
-  const BioScreen({Key? key}) : super(key: key);
+class BioEditScreen extends StatefulWidget {
+  const BioEditScreen({Key? key}) : super(key: key);
 
   @override
-  _BioScreenState createState() => _BioScreenState();
+  _BioEditScreenState createState() => _BioEditScreenState();
 }
 
-class _BioScreenState extends State<BioScreen> {
+class _BioEditScreenState extends State<BioEditScreen> {
   @override
   Widget build(BuildContext context) {
     Size mediaQuery = MediaQuery.of(context).size;
@@ -64,7 +64,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          'Đang ở TP.Hồ Chí Minh',
+                          'Đang ở',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -82,7 +82,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          '24/12/1999',
+                          '',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
@@ -100,7 +100,7 @@ class _BioScreenState extends State<BioScreen> {
                           width: mediaQuery.width * 0.02,
                         ),
                         Text(
-                          'Giới tính: Nam',
+                          'Giới tính:',
                           style: TextStyle(
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
