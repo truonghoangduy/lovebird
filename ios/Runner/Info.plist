@@ -54,5 +54,13 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location is required for locate near by for you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is required for locate near by for you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required for locate near by for you</string>
+
+
 	</dict>
 </plist>

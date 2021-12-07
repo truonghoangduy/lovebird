@@ -47,6 +47,8 @@ dependencies:
   flutter_bloc: ^8.0.0
   bloc: ^8.0.1
   equatable: ^2.0.3
+  location: ^4.3.0
+  location_web: ^3.1.1
 
 dev_dependencies:
   flutter_test:
