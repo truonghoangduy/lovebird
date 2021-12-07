@@ -19,8 +19,10 @@ class _ScanScreenState extends State<ScanScreen> {
       const Icon(Icons.favorite, size: 40, color: Colors.white),
       const Icon(Icons.person, size: 40, color: Colors.white),
     ];
-    return const Scaffold(
-      backgroundColor: Colors.red,
+    return Container(
+      child: Scaffold(
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }

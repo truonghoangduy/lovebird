@@ -13,11 +13,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int index = 1;
+  int index = 2;
   final screens = [
     const ScanScreen(),
-    const BioScreen(),
     const MatchScreen(),
+    const BioScreen(),
   ];
   @override
   Widget build(BuildContext context) {
