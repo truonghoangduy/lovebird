@@ -184,6 +184,12 @@ class _ScanScreenState extends State<ScanScreen> {
                                       right: mediaQuery.width * 0.04,
                                     ),
                                     child: LikeButton(
+                                      onTap: (love) async {
+                                        context
+                                            .read<ScanBloc>()
+                                            .add(ScanResultFlowingEvent(e));
+                                        return true;
+                                      },
                                       size: mediaQuery.width * 0.1,
                                       isLiked: false,
                                     ),

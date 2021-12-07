@@ -19,7 +19,7 @@ class SocailSerive {
     }).toList();
   }
 
-  pendingRequest(String myUUID, String otherUUID, String penddingTo) async {
+  Future<void> pendingRequest(String myUUID, String otherUUID) async {
     // Add to my watch pending
 
     var myRef = collectionReference

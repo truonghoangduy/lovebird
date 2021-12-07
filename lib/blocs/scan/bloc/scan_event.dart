@@ -8,3 +8,11 @@ abstract class ScanEvent extends Equatable {
 }
 
 class ScanStartEvent extends ScanEvent {}
+
+class ScanResultFlowingEvent extends ScanEvent {
+  final Bio bio;
+
+  ScanResultFlowingEvent(this.bio);
+  @override
+  List<Object> get props => [bio];
+}

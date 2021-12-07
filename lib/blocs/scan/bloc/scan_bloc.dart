@@ -5,10 +5,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:lovebird/blocs/authentication/authentication_bloc.dart';
+import 'package:lovebird/constant/api_constant.dart';
 import 'package:lovebird/models/bio_model.dart';
 import 'package:lovebird/services/auth/models/authentication_detail.dart';
 import 'package:lovebird/services/bio_service.dart';
 import 'package:lovebird/services/location_service.dart';
+import 'package:lovebird/services/socail_service.dart';
 
 part 'scan_event.dart';
 part 'scan_state.dart';
@@ -18,17 +20,26 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
   final bioSerivce = BioServices();
   final AuthenticationBloc authenticationBloc;
   late AuthenticationDetail user;
+  final socailSerive = SocailSerive();
   ScanBloc({required this.authenticationBloc}) : super(ScanInitial()) {
     // on<ScanEvent>((event, emit) {
     //   // TODO: implement event handler
     // });
     _generateFakeBio();
 
+    fakeData.forEach((element) async {
+      await FirebaseFirestore.instance
+          .collection(ApiPath.bioCollectionRef)
+          .doc(element.uuid)
+          .set(element.toJson());
+    });
+
     authenticationBloc.stream
         .where((state) => state is AuthenticationSuccess)
         .listen((event) {
       user = (event as AuthenticationSuccess).authenticationDetail;
       on<ScanStartEvent>(_handleScanStartEvent);
+      on<ScanResultFlowingEvent>(_handleScanResultFlowingEvent);
     });
   }
 
@@ -53,7 +64,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
   _generateFakeBio() {
     for (var i = 0; i < 5; i++) {
       fakeData.add(Bio(
-          uuid: "xxx",
+          uuid: "xxxxtest" + i.toString(),
           sex: 0,
           avatar:
               "https://scontent.fsgn2-4.fna.fbcdn.net/v/t39.30808-1/p320x320/249233916_3070314433217063_7410007586773100947_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=m0OrDFFbgtIAX-7C2jy&_nc_ht=scontent.fsgn2-4.fna&oh=cc2bb385bc4899d196e53a56814593e6&oe=61B37D7A",
@@ -62,10 +73,15 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           hobbies: ["hobbies"],
           name: "Fake" + i.toString(),
           address: "address",
-          geoFirePoint: GeoFirePoint(1222, 233),
+          geoFirePoint: GeoFirePoint(10.835519382256361, 10.835519382256361),
           socialUrl: ["socialUrl"]));
     }
   }
 
   List<Bio> fakeData = [];
+
+  FutureOr<void> _handleScanResultFlowingEvent(
+      ScanResultFlowingEvent event, Emitter<ScanState> emit) async {
+    await socailSerive.pendingRequest(user.uid!, event.bio.uuid!);
+  }
 }
