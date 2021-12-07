@@ -42,7 +42,7 @@ class CustomPositionAvatar extends StatelessWidget {
         ),
       ),
       child: const CircleAvatar(
-          backgroundColor: Colors.red, foregroundColor: Colors.red
+          backgroundColor: Colors.cyanAccent, foregroundColor: Colors.white
           // backgroundImage: NetworkImage(
           //   avt,
           // ),
