@@ -1,6 +1,11 @@
 # lovebird
 
-A new Flutter project.
+A new Flutter project within 3days of madness
+
+```Video of demo``` ```PWA``` interaction ```Mobile App```
+<br>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=uH1CVMfIADw" target="_blank"><img src="http://img.youtube.com/vi/uH1CVMfIADw/0.jpg" 
+alt="Bash Into Zsh!"/></a>
 
 ##### ``` Installation ```
 1. the application only run on ```real device``` due to GPS functionality.
