@@ -22,11 +22,12 @@ alt="Bash Into Zsh!"/></a>
 ##### ``` Tech Feature ```
 1. Sign in with google account.
 2. Realtime data.
-3. Web/ Android/ IOS work greaten together.
-4. Flutter Bloc + Cross platform lib.
-4. ``` Lovebird powered by Firebase sama :>```
-5. Dynamic view for Flutter Web (PWA stuff) https://lovebird-dev-fest.web.app (lite test)
-5. 90% coding at 3am (a bit madness).
+3. Geo Location + GeoHash.
+4. Web/ Android/ IOS work greaten together.
+5. Flutter Bloc + Cross platform lib.
+7. ``` Lovebird powered by Firebase sama :>```
+8. Dynamic view for Flutter Web (PWA stuff) https://lovebird-dev-fest.web.app (lite test)
+9. 90% coding at 3am (a bit madness).
 
 [PWA - Flutter :> ](https://lovebird-dev-fest.web.app)
 #### [Figma](https://www.figma.com/file/HCAaJg9ldN4Vc2JGBSalHo/LoveBird?node-id=0%3A1)
