@@ -3,6 +3,7 @@
 A new Flutter project within 3days of madness
 
 ```Video of demo``` ```PWA``` interaction ```Mobile App```
+https://www.youtube.com/watch?v=uH1CVMfIADw
 <br>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=uH1CVMfIADw" target="_blank"><img src="http://img.youtube.com/vi/uH1CVMfIADw/0.jpg" 
 alt="Bash Into Zsh!"/></a>
