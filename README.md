@@ -1,6 +1,10 @@
 # lovebird
 
 A new Flutter project within 3days of madness
+##### ```lovebird -aka- love just flew over you```
+
+![lovebird_icon](https://github.com/truonghoangduy/lovebird/blob/master/assets/img/lovebird.png)
+
 
 ```Video of demo``` ```PWA``` interaction ```Mobile App```
 https://www.youtube.com/watch?v=uH1CVMfIADw
